@@ -21,12 +21,10 @@ hexToBinaryMap =
     ]
 
 htob :: String -> String
-htob "" = ""
+htob []= []
 htob (x:xs) = (Map.findWithDefault "" x hexToBinaryMap) ++ htob xs
 
-
-main :: IO ()
 main = do
-    hex <- getLine
-    let result = htob hex
-    putStrLn result
+    s <- getLine
+    let result = htob s
+    print result
